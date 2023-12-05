@@ -45,22 +45,25 @@ const Modal = ({ isVisible, onClose, share }) => {
 
   return (
     <div
-      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-25 backdrop-blur-sm"
+      className="fixed inset-0 flex items-center justify-center w-full h-screen p-10 bg-black bg-opacity-25 backdrop-blur-sm"
       id="closeit"
       onClick={handleClose}
     >
-      <div className="flex flex-col w-[450px] h-[250px] bg-white rounded-md p-2 space-y-2">
+      <div className="w-full h-full flex flex-col sm:w-[450px] sm:h-[250px] bg-white rounded-md p-4 space-y-2">
         <button className="place-self-end" type="button" onClick={onClose}>
           <CancelIcon />
         </button>
        <div className="px-6 space-y-4">
        <p className="text-lg font-semibold">Share :</p>
-        <div className="pt-2 space-x-4">
+       <div className="p-0 text-red-600">
+          {linkCopied && "Copied!"}
+        </div>
+        <div className="space-x-4 ">
           <input 
             type="text" 
             value={inputValue}
             onChange={(e)=> setInputValue(e.target.value)}
-            className="ring-1 ring-blue-400 rounded-[4px] h-8 w-[280px] px-2 "/>
+            className="w-full ring-1 ring-blue-400 rounded-[4px] h-8 sm:w-[280px] px-2 "/>
 
           <button onClick={handleCopy}>
           <CopyToClipboard text={inputValue}>
@@ -73,28 +76,26 @@ const Modal = ({ isVisible, onClose, share }) => {
           </button>
 
         </div>
-        <div className="p-0 text-red-600">
-          {linkCopied && "Copied!"}
-        </div>
-        <div className="flex justify-center gap-[50px] pt-4">
+        
+        <div className="w-full flex flex-wrap justify-center gap-[20px] pt-4">
           <FacebookShareButton url={facebookUrl}>
-            <FacebookIcon className="rounded-full " size={36} />
+            <FacebookIcon className="rounded-full " size={20} />
           </FacebookShareButton>
 
           <WhatsappShareButton url={whatsAppUrl}>
-            <WhatsappIcon className="rounded-full " size={36} />
+            <WhatsappIcon className="rounded-full " size={20} />
           </WhatsappShareButton>
 
           <TwitterShareButton url={twitterUrl}>
-            <TwitterIcon className="rounded-full " size={36} />
+            <TwitterIcon className="rounded-full " size={20} />
           </TwitterShareButton>
 
           <EmailShareButton url={emailUrl}>
-            <EmailIcon className="rounded-full " size={36} />
+            <EmailIcon className="rounded-full " size={20} />
           </EmailShareButton>
 
           <LinkedinShareButton url={linkdinUrl}>
-            <LinkedinIcon className="rounded-full " size={36} />
+            <LinkedinIcon className="rounded-full " size={20} />
           </LinkedinShareButton>
         </div>
        </div>
