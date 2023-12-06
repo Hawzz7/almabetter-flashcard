@@ -9,13 +9,11 @@ import AddIcon from "@mui/icons-material/Add";
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import EditIcon from "@mui/icons-material/Edit";
 import * as Yup from "yup";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setValuesOfCard } from "../store/Slice";
-import {v4 as uuidv4} from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 const CreateFlashcardPage = () => {
-  const dispatch = useDispatch();
-
   const initialValues = {
     groupId: uuidv4(),
     groupName: "",
@@ -54,11 +52,33 @@ const CreateFlashcardPage = () => {
     ),
   });
 
+  const data = useSelector((state) => {
+    return state.cards.valuesOfCard;
+  });
+
+  const existingGroupIds = data.map((card) => card.card.groupId);
+
+  const dispatch = useDispatch();
+
   const onSubmit = (values, { resetForm }) => {
+
+    // Check for local duplicates
+    let newGroupId = values.groupId;
+    while (existingGroupIds.includes(newGroupId)) {
+      newGroupId = uuidv4(); // Generate a new groupId if it already exists locally
+    }
+
+    // Check for global duplicates (within Redux store)
+    while (existingGroupIds.includes(newGroupId)) {
+      newGroupId = uuidv4(); // Generate a new groupId if it already exists globally
+    }
+
+    // Update the values with the new groupId
+    values.groupId = newGroupId;
+    
     dispatch(setValuesOfCard(values));
     resetForm({ values: "" });
     console.log(values);
-    location.reload()
   };
 
   return (
@@ -151,10 +171,10 @@ const CreateFlashcardPage = () => {
                             type="button"
                             onClick={() =>
                               arrayHelpers.insert(formik.values.length + 1, {
-                                termId:uuidv4(),
+                                termId: uuidv4(),
                                 termName: "",
                                 termDefination: "",
-                                termImage:null,
+                                termImage: null,
                               })
                             }
                           >
