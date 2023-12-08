@@ -6,7 +6,7 @@ This is a simple project in which we use to create beautiful cards with descipti
 
 Clone this project to your local Computer by running the comand on the cmd 
 
- * git clone
+ * git clone https://github.com/Hawzz7/almabetter-flashcard.git
 
 after this install all the dependencies and start the server
 
