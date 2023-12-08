@@ -1,3 +1,5 @@
+//This page is used to create the flashcard.The form is made with formik. Here we have a form in which there are different fields which we will fill to create beautiful flashcards to display 
+
 import React from "react";
 import { FieldArray, Formik, Form } from "formik";
 import MyInput from "./form-components/MyInput";
@@ -14,6 +16,7 @@ import { setValuesOfCard } from "../store/Slice";
 import { v4 as uuidv4 } from "uuid";
 
 const CreateFlashcardPage = () => {
+ //state of each of the fields of the form 
   const initialValues = {
     groupId: uuidv4(),
     groupName: "",
@@ -29,6 +32,7 @@ const CreateFlashcardPage = () => {
     ],
   };
 
+  //validation for each of the form fields to check whether they have been filled/selected  or not
   const validationSchema = Yup.object().shape({
     groupName: Yup.string()
       .min(5, "Too Short!")
@@ -52,14 +56,19 @@ const CreateFlashcardPage = () => {
     ),
   });
 
+  //calling the store where all the form data is stored
   const data = useSelector((state) => {
     return state.cards.valuesOfCard;
   });
 
+  //getting all the id's existed inside the store
   const existingGroupIds = data.map((card) => card.card.groupId);
 
+ //Dispatch action of react redux
   const dispatch = useDispatch();
 
+
+  //submiting the form values to the store using the dispatch hook
   const onSubmit = (values, { resetForm }) => {
 
     // Check for local duplicates
@@ -76,7 +85,10 @@ const CreateFlashcardPage = () => {
     // Update the values with the new groupId
     values.groupId = newGroupId;
     
+    //the dispatch action named "setValuesOfCard" which store the values of the form to the localstorage. See the slice folder to get the info about action creators
     dispatch(setValuesOfCard(values));
+
+    //reset the form after the submition
     resetForm({ values: "" });
     console.log(values);
   };

@@ -1,3 +1,5 @@
+//This page is for navigating between createflashcard page and Flashcards page
+
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -8,11 +10,14 @@ const Navbar = () => {
         <p className="text-[28px] font-medium">Create Flashcard</p>
       </div>
       <div className="flex items-center justify-center w-full h-fit sm:justify-start sm:w-[570px] md:w-[710px] lg:w-[870px] gap-2">
+        {/* will navigate us to createFlashcard form page */}
         <Link
         to="/createflashcard"
         className="text-sm duration-200 focus:underline hover:text-red-700 focus:text-red-700 decoration-red-700 focus:decoration-4 decoration-4 underline-offset-4 hover:scale-105">
           Create New
         </Link>
+
+        {/* will navigate us to flashcards page */}
         <Link to='/flashcards' className="text-sm duration-200 hover:scale-105 focus:underline hover:text-red-700 focus:text-red-700 decoration-red-700 focus:decoration-4 decoration-4 underline-offset-4">
           My Flashcards
         </Link>
