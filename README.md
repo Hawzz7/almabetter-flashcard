@@ -1,8 +1,49 @@
-# React + Vite
+# Flashcard-Almabetter-Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple project in which we use to create beautiful cards with desciptions.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Clone this project to your local Computer by running the comand on the cmd 
+
+ * git clone
+
+after this install all the dependencies and start the server
+
+* npm install
+
+since I have made this project with vite that is why run this command
+* npm run dev
+
+## Technologies Used
+
+* Reactjs( React Router ),
+* Redux & Redux Toolkit,
+* TailwindCSS,
+* MUI-icons,
+* React Formik & Yup,
+
+## Deployment Link
+click on this link to see the website how it looks and work
+*
+
+## Features
+* Add More Input Box (Button)
+* Delete button (Button)
+* View cards (Button)
+* Upload Image (Button)
+* Share (Copy Clipboard button)
+* Social Media Butoon's ( Working )
+* Back Button
+* close button for closing share page
+
+
+## Contact
+
+On email
+
+* vicky.007.cr@gmail.com
+  
+Or connect on linkedin
+
+* Narendra Kumar Majhi :- https://www.linkedin.com/in/narendra-kumar-majhi-78518a206
