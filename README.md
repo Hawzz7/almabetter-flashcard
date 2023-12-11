@@ -36,6 +36,8 @@ click on this link to see the website how it looks and work
 * Social Media Butoon's ( Working )
 * Back Button
 * close button for closing share page
+* Download Button (working)
+* Print Button (working)
 
 
 ## Contact
