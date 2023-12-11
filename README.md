@@ -25,7 +25,7 @@ since I have made this project with vite that is why run this command
 
 ## Deployment Link
 click on this link to see the website how it looks and work
-*https://flashcardapp007.netlify.app/createflashcard
+* https://flashcardapp007.netlify.app
 
 ## Features
 * Add More Input Box (Button)
